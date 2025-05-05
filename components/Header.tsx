@@ -55,12 +55,16 @@ const Header: FC = async () => {
   );
 
   return (
-    <header className="bg-white px-12 py-6 flex items-center justify-between transition-colors duration-300">
-      {contactData?.logo?.responsiveImage && (
-        <DatoImage data={contactData?.logo?.responsiveImage} priority />
-      )}
-      <nav className="px-0 py-4">
-        <ul className="list-none flex gap-5">
+    <header className="bg-white flex flex-col md:flex-row p-4 md:px-8 md:py-8 gap-4 items-center transition-colors duration-300">
+      <div className="grow">
+        {contactData?.logo?.responsiveImage && (
+          <Link href="/">
+            <DatoImage data={contactData?.logo?.responsiveImage} priority />
+          </Link>
+        )}
+      </div>
+      <nav className="grow">
+        <ul className="flex flex-wrap text-nowrap gap-4 md:gap-8 list-none">
           <li>
             <Link href="/" className="text-[#040e27] hover:text-[#1ec6b6]">
               Domů
@@ -94,7 +98,7 @@ const Header: FC = async () => {
           </li>
         </ul>
       </nav>
-      <aside className="flex">
+      <aside className="hidden md:flex">
         <div className="flex flex-col justify-center gap-2">
           <a
             href={`tel:${contactData?.phone}`}
@@ -111,7 +115,7 @@ const Header: FC = async () => {
             {contactData?.email}
           </a>
         </div>
-        <div className="mx-5 px-5 border-[#eaeaea] border-x-2">
+        <div className="hidden lg:block mx-5 px-5 border-[#eaeaea] border-x-2">
           {configuration?.happyCustomerLogo?.responsiveImage && (
             <DatoImage
               data={configuration.happyCustomerLogo.responsiveImage}
@@ -119,7 +123,7 @@ const Header: FC = async () => {
             />
           )}
         </div>
-        <ul className="list-none flex items-center gap-4 text-[#aab1b7]">
+        <ul className="flex items-center gap-4 text-[#aab1b7]">
           {contactData?.instagramLink && (
             <li>
               <a

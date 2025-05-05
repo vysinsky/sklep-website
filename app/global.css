@@ -2,3 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+.with-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0 5px 0;
+
+    img {
+        float: none;
+        max-width: 32%;
+        padding-top: 0;
+        padding-left: 10px;
+        padding-bottom: 15px;
+    }
+}
